@@ -1,0 +1,51 @@
+<!-- Exercise18-Day19-Frontend-Greetings-Props -->
+<!-- Hello!
+We now know how to send properties from component. 
+Please create one 'greetings' functional component and 
+a 'greetings' class component such that the name is sent as attribute 
+from the component, is read as props and is displayed on screen 
+as "Hello XYZ" or "Hello Jane!". -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Component - props</title>
+</head>
+<body>
+    <!--1 //create root div with an id  -->
+    <div id="root"> This will change</div>
+
+
+    <!-- 2 get react libs -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel"> // 3 babel here
+
+
+class Greeting extends React.Component{
+    constructor(props){
+        super(props);
+        console.log(this.props);
+    }
+    render(){
+        return  <h1> Hello from class component, this is {this.props.name}</h1>;
+            
+    }
+
+}
+
+let MyGreeting = (props)=>{
+    return <h1> Hello from function component, this is {props.name}</h1>;
+}
+
+
+
+let root = ReactDOM.createRoot(document.getElementById('root'));
+root.render([<Greeting name="Dana"/>,<MyGreeting name="Jane"/>]);
+
+
+</script>
+</body>
+</html>
